@@ -1,0 +1,17 @@
+def number(a, b):
+    operator = input("Enter operator (+ or - or * or /): ")
+    if operator == '+':
+        return a + b
+    elif operator == '-':
+        return a - b
+    elif operator == '*':
+        return a * b
+    elif operator == '/':
+        return a / b
+    else:
+        print("Invalid operator. Please enter + or -.")
+
+if __name__ == '__main__':
+    a = int(input().strip())
+    b = int(input().strip())
+    print(number(a, b))
