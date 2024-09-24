@@ -1,0 +1,24 @@
+def count_word_occurrences(paragraph, word):
+   
+    paragraph = paragraph.lower()
+    word = word.lower()
+
+    words = paragraph.split()
+
+    count = words.count(word)
+
+    return count
+
+
+paragraph = input("Enter a paragraph: ")
+word = input("Enter the word to find: ")
+
+
+count = count_word_occurrences(paragraph, word)
+print(f"The word '{word}' appears {count} times in the paragraph.")
+
+
+
+
+
+
