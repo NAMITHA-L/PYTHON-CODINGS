@@ -1,0 +1,33 @@
+def add(n,m):
+    
+   return n+m
+def sub(n,m):
+    return n-m
+    
+def mul(n,m):
+    return n*m
+    
+def div(n,m):
+    if m==0:
+         return'ERROR zero be divide call' 
+         
+    else:
+         return n/m
+                  
+n=int(input("Enter the first number:"))
+m=int(input("enter the second number:"))
+ 
+
+a=int (input("which operation u want to perform:\n1-addition\n2-subtraction\n3-multiplication\n4-division\n" ))
+if a == 1:
+ print("answer is:",add(n,m))
+elif a == 2:
+ print("answer is:",sub(n,m))
+elif a == 3:
+ print("answer is:",mul(n,m))
+else:
+ print ("answer is:",div(n,m))
+                
+
+
+
