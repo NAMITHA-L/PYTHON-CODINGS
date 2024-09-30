@@ -1,0 +1,27 @@
+strings = ['6000070', '6000071', '6000072', '6000073', '6000074',
+    '6000075', '6000076', '6000077', '6000078', '6000079', '6000080']
+lst = []
+lst1 = []
+
+n1 = input("Enter 1st character: ")
+m1 = input("Enter 2nd character: ")
+
+for string in strings:
+    if n1 in string:
+        lst.append(string)
+
+for item in lst:
+    if m1 in item:
+        lst1.append(item)
+        
+if len(lst1) > 1:
+    c = input("Enter another character: ")
+    for item in lst1:
+        if c in item:
+            print("Match found: ", item)
+else:
+    for item in lst1:
+        print("Match found: ", item)
+
+
+
