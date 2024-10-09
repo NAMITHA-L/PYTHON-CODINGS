@@ -1,0 +1,20 @@
+def nearestPower(A, B):
+    closest_power = A ** 0  # Start with A^0, which is always 1
+    i = 0  # Initialize the exponent
+    
+    while True:
+        power_value = A ** i
+        if power_value > B:  # If power exceeds B, we can break
+            break
+        closest_power = power_value  # Update closest power
+        i += 1  # Move to the next power
+    
+    # Check the last calculated power if it was not included
+    if abs(A ** (i - 1) - B) > abs(A ** i - B):
+        closest_power = A ** i
+    
+    return closest_power
+
+# Example usage
+print(nearestPower(2, 10))  # Output: 8 (2^3)
+print(nearestPower(3, 20))  # Output: 27 (3^3)
