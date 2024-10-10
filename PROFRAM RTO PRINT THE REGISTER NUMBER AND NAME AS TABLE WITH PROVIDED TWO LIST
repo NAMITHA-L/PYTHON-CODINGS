@@ -1,0 +1,13 @@
+
+lst1 = ["23BCE11618", "23BCE11619", "23BCE11620", "23BCE11621", "23BCE11622", "23BCE11623"]
+lst2 = ["ASHLESHA KAMAL ", "AMARJIT PAUL ", "NAMITHA", "MANOJ", "MUHAMMED AFNAN", "VIDUSHI CHHAJED"]
+
+a = len(lst1)
+
+# Print the table header
+print(f"{'ID':<15} {'Name':<10}")  # Align the columns
+print("-" * 28)
+
+# Iterate over the range of the length of the lists
+for i in range(a):
+    print(f"{lst1[i]} - {lst2[i]}") 
