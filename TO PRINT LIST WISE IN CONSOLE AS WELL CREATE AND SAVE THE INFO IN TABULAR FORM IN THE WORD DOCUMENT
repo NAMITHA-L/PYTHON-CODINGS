@@ -1,0 +1,32 @@
+from docx import Document
+
+# Sample input lists
+lst1 = ["23BCE11618", "23BCE11619", "23BCE11620", "23BCE11621", "23BCE11622", "23BCE11623"]
+lst2 = ["ASHLESHA KAMAL ", "AMARJIT PAUL ", "NAMITHA", "MANOJ", "MUHAMMED AFNAN", "VIDUSHI CHHAJED"]
+
+# Create a new Document
+doc = Document()
+doc.add_heading('ID and Names Table', level=1)
+
+# Create the table with 1 header row and 2 columns
+table = doc.add_table(rows=1, cols=2)
+
+# Set the header cells
+hdr_cells = table.rows[0].cells
+hdr_cells[0].text = 'ID'
+hdr_cells[1].text = 'Name'
+
+# Populate the table with data
+for id_, name in zip(lst1, lst2):
+    row_cells = table.add_row().cells
+    row_cells[0].text = id_
+    row_cells[1].text = name.strip()  # Remove any extra spaces
+
+# Save the document
+doc.save('ID_Names_Table.docx')
+
+# Print to console for verification
+print(f"{'ID':<15} {'Name':<10}")  # Align the columns
+print("-" * 28)
+for id_, name in zip(lst1, lst2):
+    print(f"{id_:<15} {name.strip():<10}")
