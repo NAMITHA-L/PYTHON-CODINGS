@@ -1,0 +1,16 @@
+def palindrome(s):
+    s = s.lower()
+    
+    
+    original_list = list(s)
+    reversed_list = list(s[::-1])
+    
+    
+    if original_list == reversed_list:
+        return 'The given input is a palindrome'
+    else:
+        return 'The given input is not a palindrome'
+
+
+s = input("Enter the input: ")
+print(palindrome(s))
