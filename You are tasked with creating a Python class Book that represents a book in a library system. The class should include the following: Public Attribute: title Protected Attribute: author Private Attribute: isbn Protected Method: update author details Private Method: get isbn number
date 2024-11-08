@@ -1,0 +1,25 @@
+class Book:
+    def __init__(self, title, author, isbn):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+
+    def update_author_details(self, new_author):
+        self.author = new_author
+
+    def get_isbn_no(self):
+        return self.isbn
+
+    def book_details(self):
+        print(f"Author name: {self.author}")
+        print(f"Book name: {self.title}")
+        print(f"ISBN number: {self.get_isbn_no()}")
+
+# Creating a book object
+book1 = Book("Namitha is a girl", "Harshitha is a good girl", "1234567890")
+print(f"Book name is: {book1.title}")
+print(f"Author name is: {book1.author}")
+
+# Updating the author details
+book1.update_author_details("New Author")
+book1.book_details()
