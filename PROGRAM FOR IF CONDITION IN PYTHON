@@ -1,0 +1,10 @@
+def friends_in_trouble(j_angry, s_angry):
+    if j_angry == True and s_angry == True:
+        return True
+    else:
+        return False
+
+print(friends_in_trouble(True, True))   # Output: True
+print(friends_in_trouble(True, False))  # Output: False
+print(friends_in_trouble(False, True))  # Output: False
+print(friends_in_trouble(False, False)) # Output: False
