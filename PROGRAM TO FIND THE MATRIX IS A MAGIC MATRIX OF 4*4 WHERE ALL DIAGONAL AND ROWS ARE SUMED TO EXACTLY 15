@@ -1,0 +1,13 @@
+import numpy as np
+def ismagicsq(matrix):
+    targetsum = 15
+    rowsum=np.sum(matrix,axis=1)
+    colsum=np.sum(matrix,axis=0)
+    diagsum1=np.sum(np.diag(matrix))
+    diagsum2=np.sum(np.diag(np.fliplr(matrix)))
+    return np.all(rowsum==targetsum)and np.all(colsum==targetsum)and np.all(diagsum1==targetsum)and np.all(diagsum2==targetsum)
+matrix=np.array([[2,7,6],[9,5,1],[4,3,8]])
+if ismagicsq(matrix):
+    print("the matrix is a magic square")
+else:
+    print("the matrix is not a magic square")
