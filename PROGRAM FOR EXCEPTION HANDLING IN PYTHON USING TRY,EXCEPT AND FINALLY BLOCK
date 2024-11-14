@@ -1,0 +1,14 @@
+def divide(n1,n2):
+    try:
+        result= n1/n2
+    except ZeroDivisionError:
+        print("ERROR: CAN'T DIVIDE BY ZERO")
+        return None
+    else:
+        print(f"division is complete and the result of division of {n1} and {n2} is {result}")
+    finally:
+        print("execution is completed")
+        
+n1=int(input("enter 1st number"))
+n2=int(input("enter 2nd number"))
+print(divide(n1,n2))
