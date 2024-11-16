@@ -1,0 +1,7 @@
+def longwrd(sentence):
+    words= sentence.split()
+    number= max(words,key=len)
+    return len(number)
+sentence=input("enter the sentence")
+ans=longwrd(sentence)
+print("the longest word's lenght is ",ans)
