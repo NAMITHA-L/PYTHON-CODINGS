@@ -1,0 +1,14 @@
+def smallergcd(a,b):
+    if a<=0 and b<=0:
+        raise ValueError("BOTH THE NUMBERS MUST BE POSITIVE")
+    else:
+        smaller = min(a,b)
+        for i in range (2,smaller+1):
+            if a%i == 0 and b%i == 0:
+                return i
+    return None
+    
+    
+a = int(input("enter a:"))
+b = int(input("enter b:"))
+print( smallergcd(a,b))
