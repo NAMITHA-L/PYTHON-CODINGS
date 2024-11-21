@@ -1,0 +1,13 @@
+def anagrams(s1, s2):
+    s1 = s1.strip().lower()  # Strip leading/trailing spaces and convert to lowercase
+    s2 = s2.strip().lower()  # Strip leading/trailing spaces and convert to lowercase
+    
+    if sorted(s1) == sorted(s2):
+        return "anagrams"
+    else:
+        return "no"
+
+# Test case
+s1 = "l ife"
+s2 = " file "
+print(anagrams(s1, s2))
