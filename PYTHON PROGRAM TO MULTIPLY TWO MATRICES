@@ -1,0 +1,32 @@
+def mul2matrix(matrix_a, matrix_b):
+    row_a = len(matrix_a)
+    col_a = len(matrix_a[0])
+    row_b = len(matrix_b)
+    col_b = len(matrix_b[0])
+    
+    # Check if the matrices can be multiplied
+    if col_a != row_b:
+        raise ValueError("NUMBER OF COLUMNS IN MATRIX A SHOULD BE EQUAL TO THE NUMBER OF ROWS IN MATRIX B")
+    
+    # Create a result matrix initialized to 0
+    result_matrix = [[0 for _ in range(col_b)] for _ in range(row_a)]
+    
+    # Multiply the matrices
+    for i in range(row_a):
+        for j in range(col_b):
+            for k in range(col_a):
+                result_matrix[i][j] += matrix_a[i][k] * matrix_b[k][j]
+    
+    return result_matrix
+
+# Example matrices
+matrix_a = [[1, 2, 3], [4, 5, 6]]
+matrix_b = [[7, 8], [9, 10], [11, 12]]
+
+# Perform matrix multiplication
+resultant = mul2matrix(matrix_a, matrix_b)
+
+# Print the resultant matrix
+print("Resultant matrix is:")
+for row in resultant:
+    print(row)
