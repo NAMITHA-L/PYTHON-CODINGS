@@ -1,0 +1,26 @@
+def decimal_no(number, base):
+    return int(number, base)
+
+def formdecimal(number, base):
+    if base == 2:
+        return bin(number)[2:]   # Convert to binary
+    elif base == 8:
+        return oct(number)[2:]   # Convert to octal
+    elif base == 16:
+        return hex(number)[2:]   # Convert to hexadecimal
+    else:
+        return str(number)       # For base 10, return the number as a string
+
+def convertbase(number, frombase, tobase):
+    decimal = decimal_no(number, frombase)   # Convert from 'frombase' to decimal
+    result = formdecimal(decimal, tobase)    # Convert from decimal to 'tobase'
+    return result
+
+# Input the number, from base, and to base
+n = input("Enter a number: ")
+f = int(input("From base: "))
+t = int(input("To base: "))
+
+# Perform the base conversion
+r = convertbase(n, f, t)
+print("The desired number is:", r)
