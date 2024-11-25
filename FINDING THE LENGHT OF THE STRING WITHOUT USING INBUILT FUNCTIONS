@@ -1,0 +1,20 @@
+def findlow(n1,n2,n3):
+    l1=0
+    l2=0
+    l3=0
+    for char in n1:
+        l1+=1
+    for char in n2:
+        l2+=1
+    for char in n3:
+        l3+=1
+    minl=l1
+    if l2<minl:
+        minl=l2
+    if l3<minl:
+        minl=l3
+    return minl
+n1="nami"
+n2="hiii"
+n3="manoj"
+print(findlow(n1,n2,n3))
