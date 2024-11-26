@@ -1,0 +1,5 @@
+def power(n):
+    f = lambda n : n*n
+    return f(n)
+n=int(input("Enter an number:"))
+print(power(n))
