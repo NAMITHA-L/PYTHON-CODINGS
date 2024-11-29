@@ -1,0 +1,15 @@
+def ispalindrom(s):
+    return s ==s[::-1]
+def issymmetrical(s):
+    length=len(s)
+    mid= length%2
+    if length % 2 == 0:
+        return s[:mid]==s[mid:]
+    else:
+        return s[:mid]==s[mid+1:]
+         
+s="malayalam"
+if ispalindrom(s):
+    print("it is palindrome")
+if issymmetrical(s):
+    print("it is symmetrical")
