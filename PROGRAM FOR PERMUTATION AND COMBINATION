@@ -1,0 +1,9 @@
+import math
+def nPr(n,r):
+    return math.factorial(n)//math.factorial(n-r)
+def nCr(n,r):
+    return math.factorial(n)//math.factorial (r)* math.factorial(n-r)
+n = 12
+r = 9
+print(nPr(n,r))
+print(nCr(n,r))
