@@ -1,0 +1,9 @@
+def armstrong(n):
+    num_str=str(n)
+    nl=len(num_str)
+    sum1= sum(int(digit)**nl for digit in num_str)
+    if sum1 == n:
+        print("it is armstrong")
+    else:
+        print("it is not an armstrong")
+armstrong(153)
