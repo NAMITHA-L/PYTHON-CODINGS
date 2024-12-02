@@ -1,0 +1,8 @@
+def gcd(a,b):
+    while b!=0:
+        a,b=b,a%b
+    return a
+n1=42
+n2=7
+print(gcd(n1,n2))
+
