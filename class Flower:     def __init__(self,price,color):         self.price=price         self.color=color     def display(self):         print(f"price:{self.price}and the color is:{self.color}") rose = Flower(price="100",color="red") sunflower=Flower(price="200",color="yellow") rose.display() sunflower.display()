@@ -1,0 +1,10 @@
+class Flower:
+    def __init__(self,price,color):
+        self.price=price
+        self.color=color
+    def display(self):
+        print(f"price:{self.price}and the color is:{self.color}")
+rose = Flower(price="100",color="red")
+sunflower=Flower(price="200",color="yellow")
+rose.display()
+sunflower.display()
