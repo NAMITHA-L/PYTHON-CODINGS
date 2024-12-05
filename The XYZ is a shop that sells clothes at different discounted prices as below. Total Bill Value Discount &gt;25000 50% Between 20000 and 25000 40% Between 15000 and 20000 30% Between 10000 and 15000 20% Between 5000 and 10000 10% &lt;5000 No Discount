@@ -1,0 +1,21 @@
+def discount(amt):
+    total=0
+    dis_amt=0
+    if amt > 25000:
+        dis_amt = 50
+    elif 20000 <= amt < 25000:
+        dis_amt=40
+    elif 15000 <= amt < 20000:
+        dis_amt=30
+    elif 10000 <= amt < 15000:
+        dis_amt=20
+    elif 5000 <= amt < 10000:
+        dis_amt=10
+    elif amt>5000:
+        dis_amt=0
+
+    
+    discounted_anmount= (dis_amt%100)*amt
+    print(f"FOR YOUR PURCHASE OF {amt}, WE WILL GIVE YOU DISCOUNT OF:{dis_amt}% SO THE DISCOUNTED AMOUNT IS:{discounted_anmount}")
+amt=int(input("ENTER A NUMBER:"))
+discount(amt)
