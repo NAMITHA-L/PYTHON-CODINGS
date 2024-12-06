@@ -1,0 +1,12 @@
+class Solution:
+    def isPowerOfThree(self, n: int) -> bool:
+        largest_power_of_three = 1162261467
+        return n > 0 and largest_power_of_three % n == 0
+
+n = int(input("Enter a number: "))
+solution = Solution()
+
+if solution.isPowerOfThree(n):
+    print(f"{n} is a power of three.")
+else:
+    print(f"{n} is not a power of three.")
