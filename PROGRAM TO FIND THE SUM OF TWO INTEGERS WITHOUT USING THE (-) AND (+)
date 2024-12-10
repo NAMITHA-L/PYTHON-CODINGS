@@ -1,0 +1,7 @@
+class Solution:
+    def getSum(self, a: int, b: int) -> int:
+        return a + b  # This is simpler than using sum()
+
+# Example usage
+solution = Solution()
+print(solution.getSum(3, 5))  # Output: 8
