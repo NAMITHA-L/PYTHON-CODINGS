@@ -1,0 +1,10 @@
+import math
+
+class Solution:
+    def mySqrt(self, x: int) -> int:
+        a = int(math.sqrt(x))
+        return a
+
+solution = Solution()
+print(solution.mySqrt(4)) 
+print(solution.mySqrt(8))  
