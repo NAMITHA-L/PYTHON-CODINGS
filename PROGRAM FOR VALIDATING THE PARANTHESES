@@ -1,0 +1,25 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        matching_brackets = {')': '(', '}': '{', ']': '['}
+        
+        for char in s:
+            if char in matching_brackets.values():  
+                stack.append(char)
+            elif char in matching_brackets.keys():
+                if not stack or stack.pop() != matching_brackets[char]:
+                    return False
+            else:
+                return False
+        return not stack
+
+# Example usage
+if __name__ == "__main__":
+    solution = Solution()
+    
+    # Test cases
+    print(solution.isValid("()"))        # Output: True
+    print(solution.isValid("()[]{}"))    # Output: True
+    print(solution.isValid("(]"))        # Output: False
+    print(solution.isValid("([)]"))      # Output: False
+    print(solution.isValid("{[]}"))      # Output: True
