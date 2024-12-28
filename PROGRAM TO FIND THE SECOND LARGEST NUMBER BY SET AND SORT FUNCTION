@@ -1,0 +1,5 @@
+class Solution:
+    def getSecondLargest(self, arr):
+        arr = list(set(arr))  # Remove duplicates
+        arr.sort()  # Sort the list in ascending order
+        return arr[-2] if len(arr) > 1 else -1  # Return the second largest or None if not available
