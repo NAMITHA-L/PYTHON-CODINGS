@@ -1,0 +1,35 @@
+def findMajority(self, arr):
+    n = len(arr)
+    c1, c2, cn1, cn2 = None, None, 0, 0
+
+    # Step 1: Find potential candidates
+    for num in arr:
+        if c1 == num:
+            cn1 += 1
+        elif c2 == num:
+            cn2 += 1
+        elif cn1 == 0:
+            c1, cn1 = num, 1
+        elif cn2 == 0:
+            c2, cn2 = num, 1
+        else:
+            cn1 -= 1
+            cn2 -= 1
+
+    # Step 2: Verify candidates
+    res = []
+    cn1, cn2 = 0, 0
+    for num in arr:
+        if num == c1:
+            cn1 += 1
+        elif num == c2:
+            cn2 += 1
+
+    # Append only if not already present
+    if cn1 > n // 3 and c1 not in res:
+        res.append(c1)
+    if cn2 > n // 3 and c2 not in res:
+        res.append(c2)
+
+    # Sort the result to match expected output order
+    return sorted(res)
