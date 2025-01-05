@@ -1,0 +1,9 @@
+def reverseArrayRec(arr):
+    n = len(arr)
+    
+    # Iterate over the first half and for every index i,
+    # swap arr[i] with arr[n - i - 1]
+    for i in range(n // 2):
+        temp = arr[i]
+        arr[i] = arr[n - i - 1]
+        arr[n - i - 1] = temp
