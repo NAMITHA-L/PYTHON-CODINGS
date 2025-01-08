@@ -1,0 +1,19 @@
+def character_frequency(input_string):
+    input_string = input_string.lower()
+        frequency_dict = {}
+    
+    for char in input_string:
+        if char.isalpha():
+            if char in frequency_dict:
+                frequency_dict[char] += 1
+            else:
+                frequency_dict[char] = 1
+    
+    return frequency_dict
+
+input_string = "Hello World!"
+
+result = character_frequency(input_string)
+print("Character Frequency:")
+for char, frequency in result.items():
+    print(f"{char}: {frequency}")
