@@ -1,0 +1,26 @@
+class Solution:
+    MAX_CHAR = 26
+    #Function is to check whether two strings are anagram of each other or not.
+    def areAnagrams(self, s1, s2):
+        #code here
+        if len(s1) != len(s2):
+            return False
+        freq = [0] * self.MAX_CHAR
+        for ch in s1:
+            if 'a' <= ch <= 'z':
+                freq[ord(ch)- ord('a')] += 1
+            elif 'A' <= ch <= 'Z':
+                freq[ord(ch) - ord('A')] += 1
+            else:
+                return False
+        for ch in s2:
+            if 'a' <= ch <= 'z':
+                freq[ord(ch)- ord('a')] -= 1
+            elif 'A' <= ch <= 'Z':
+                freq[ord(ch) - ord('A')] -= 1
+            else:
+                return False
+        for count in freq:
+            if count!= 0:
+                return False
+        return True
