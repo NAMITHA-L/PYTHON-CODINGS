@@ -1,0 +1,16 @@
+def mergeOverlap(arr):
+    
+    arr.sort()
+
+    resIdx = 0
+
+    for i in range(1, len(arr)):
+        
+        if arr[resIdx][1] >= arr[i][0]:           
+            arr[resIdx][1] = max(arr[resIdx][1], arr[i][1])
+        
+        else:            
+            resIdx += 1
+            arr[resIdx] = arr[i]
+
+    return resIdx + 1
