@@ -1,0 +1,16 @@
+def intersection(a, b):
+  
+    # Put all elements of a[] in sa
+    sa = set(a)
+
+    res = []
+
+    # Traverse through b[]
+    for elem in b:
+      
+        # If the element is in sa
+        if elem in sa:
+            res.append(elem)  # Add it to the result array
+            sa.remove(elem)   # Erase it from sa to avoid duplicates
+
+    return res
