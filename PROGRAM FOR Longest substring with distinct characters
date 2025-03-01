@@ -1,0 +1,13 @@
+ def longestUniqueSubstr(self, s):
+        # code here
+        MAX_CHAR = 256
+        n = len(s)
+        r = 0
+        li = [-1]*MAX_CHAR
+        st = 0
+        for e in range(n):
+            c= ord(s[e])
+            st = max(st,li[c] + 1)
+            r = max(r,e-st+1)
+            li[c] = e
+        return r
