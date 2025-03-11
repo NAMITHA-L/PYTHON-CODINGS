@@ -1,0 +1,21 @@
+def reverseKGroup(head, k):
+    if not head or k == 1:
+        return head
+    st = []
+    curr = head
+    prev = None
+    while curr is not None:
+        count = 0
+        while curr is not None and count < k:
+            st.append(curr)
+            curr = curr.next
+            count += 1
+        while len(st) > 0:
+            if prev is None:
+                prev = st.pop()
+                head = prev
+            else:
+                prev.next = st.pop()
+                prev = prev.next
+    prev.next = None
+    return head
