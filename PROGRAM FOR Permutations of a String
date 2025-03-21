@@ -1,0 +1,27 @@
+def genPermutations(n, curr, cnt, res):
+  
+    if len(curr) == n:
+        res.append(curr)
+        return
+
+    for c, count in cnt.items():
+        if count == 0:
+            continue
+
+        cnt[c] -= 1
+
+        genPermutations(n, curr + c, cnt, res)
+
+        cnt[c] += 1
+
+def findPermutation(s):
+  
+    res = []
+    
+    cnt = {} 
+
+    for c in s:
+        cnt[c] = cnt.get(c, 0) + 1
+
+    genPermutations(len(s), "", cnt, res)
+    return res
