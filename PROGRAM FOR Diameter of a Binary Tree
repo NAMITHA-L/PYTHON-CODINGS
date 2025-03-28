@@ -1,0 +1,16 @@
+def diameterRecur(root, res):
+
+    if root is None:
+        return 0
+
+    lHeight = diameterRecur(root.left, res)
+    rHeight = diameterRecur(root.right, res)
+
+    res[0] = max(res[0], lHeight + rHeight)
+
+    return 1 + max(lHeight, rHeight)
+
+def diameter(root):
+    res = [0]
+    diameterRecur(root, res)
+    return res[0]
