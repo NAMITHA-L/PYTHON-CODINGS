@@ -1,0 +1,33 @@
+def mirror(root):
+    if root is None:
+        return
+
+    queue = deque([root])
+
+    while queue:
+        curr = queue.popleft()
+
+        curr.left, curr.right = curr.right, curr.left
+
+        if curr.left:
+            queue.append(curr.left)
+        if curr.right:
+            queue.append(curr.right)
+
+def levelOrder(root):
+    if root is None:
+        print("N ", end="")
+        return
+
+    queue = deque([root])
+
+    while queue:
+        curr = queue.popleft()
+
+        if curr is None:
+            print("N ", end="")
+            continue
+
+        print(curr.data, end=" ")
+        queue.append(curr.left)
+        queue.append(curr.right)
