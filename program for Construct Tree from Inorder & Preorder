@@ -1,0 +1,33 @@
+def printLevelOrder(root):
+    if root is None:
+        print("N ", end="")
+        return
+    qq = deque([root])
+    nonNull = 1
+    while qq and nonNull > 0:
+        curr = qq.popleft()
+        if curr is None:
+            print("N ", end="")
+            continue
+        nonNull -= 1
+        print(curr.data, end=" ")
+        qq.append(curr.left)
+        qq.append(curr.right)
+        if curr.left:
+            nonNull += 1
+        if curr.right:
+            nonNull += 1
+def buildTreeRecur(mp, preorder, preIndex, left, right):
+    if left > right:
+        return None
+    rootVal = preorder[preIndex[0]]
+    preIndex[0] += 1
+    root = Node(rootVal)
+    index = mp[rootVal]
+    root.left = buildTreeRecur(mp, preorder, preIndex, left, index - 1)
+    root.right = buildTreeRecur(mp, preorder, preIndex, index + 1, right)
+    return root
+def buildTree(inorder, preorder):
+    mp = {value: idx for idx, value in enumerate(inorder)}
+    preIndex = [0]
+    return buildTreeRecur(mp, preorder, preIndex, 0, len(inorder) - 1)
