@@ -1,0 +1,23 @@
+def countPathsUtil(node, k, currSum, prefSums):
+    if node is None:
+        return 0
+
+    pathCount = 0
+    currSum += node.data
+
+    if currSum == k:
+        pathCount += 1
+
+    pathCount += prefSums.get(currSum - k, 0)
+
+    prefSums[currSum] = prefSums.get(currSum, 0) + 1
+
+    pathCount += countPathsUtil(node.left, k, currSum, prefSums)
+    pathCount += countPathsUtil(node.right, k, currSum, prefSums)
+
+    prefSums[currSum] -= 1
+
+    return pathCount
+def countAllPaths(root, k):
+    prefSums = {}
+    return countPathsUtil(root, k, 0, prefSums)
