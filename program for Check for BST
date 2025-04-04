@@ -1,0 +1,25 @@
+def isBST(root):
+    curr = root
+    prevValue = float('-inf') 
+
+    while curr:
+        if curr.left is None:
+            if curr.data <= prevValue:
+                return False
+            prevValue = curr.data
+            curr = curr.right
+        else:
+            pre = curr.left
+            while pre.right and pre.right != curr:
+                pre = pre.right
+            if pre.right is None:
+                pre.right = curr
+                curr = curr.left
+            else:
+                pre.right = None
+                if curr.data <= prevValue:
+                    return False
+                prevValue = curr.data
+                curr = curr.right
+
+    return True
