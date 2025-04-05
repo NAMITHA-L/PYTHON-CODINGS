@@ -1,0 +1,22 @@
+class Node:
+    def __init__(self, x, l):
+        self.data = x
+        self.lCount = l
+        self.left = None
+        self.right = None
+
+def kthSmallestRecur(root, k):
+    if root is None:
+        return -1
+    if k[0] < root.lCount + 1:
+        return kthSmallestRecur(root.left, k)
+    elif k[0] == root.lCount + 1:
+        return root.data
+    
+    else:
+        k[0] -= (root.lCount + 1)
+        return kthSmallestRecur(root.right, k)
+
+def kthSmallest(root, k):
+    kRef = [k]
+    return kthSmallestRecur(root, kRef)
