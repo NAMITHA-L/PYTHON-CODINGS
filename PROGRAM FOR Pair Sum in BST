@@ -1,0 +1,35 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+
+def inorderTraversal(root, inorder):
+    if root is None:
+        return
+
+    inorderTraversal(root.left, inorder)
+
+    inorder.append(root.data)
+
+    inorderTraversal(root.right, inorder)
+
+def findTarget(root, target):
+    inorder = []
+    inorderTraversal(root, inorder)
+
+    left, right = 0, len(inorder) - 1
+
+    while left < right:
+        currentSum = inorder[left] + inorder[right]
+
+        if currentSum == target:
+            return True
+
+        if currentSum < target:
+            left += 1
+          
+        else:
+            right -= 1
+
+    return False
