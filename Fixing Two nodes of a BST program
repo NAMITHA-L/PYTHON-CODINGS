@@ -1,0 +1,45 @@
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.left = None
+        self.right = None
+
+def correctBSTUtil(root, first, middle, last, prev):
+    if root is None:
+        return
+    correctBSTUtil(root.left, first, middle, last, prev)
+    if prev[0] and root.data < prev[0].data:
+        if not first[0]:
+            first[0] = prev[0]
+            middle[0] = root
+        else:
+            last[0] = root
+    prev[0] = root
+    correctBSTUtil(root.right, first, middle, last, prev)
+def correctBST(root):
+    first, middle, last, prev = [None], [None], [None], [None]
+    correctBSTUtil(root, first, middle, last, prev)
+    if first[0] and last[0]:
+        first[0].data, last[0].data = last[0].data, first[0].data
+    elif first[0] and middle[0]:
+        first[0].data, middle[0].data = middle[0].data, first[0].data
+
+def printLevelOrder(root):
+    if not root:
+        print("N", end=" ")
+        return
+    queue = [root]
+    nonNull = 1
+    while queue and nonNull > 0:
+        curr = queue.pop(0)
+        if curr is None:
+            print("N", end=" ")
+            continue
+        nonNull -= 1
+        print(curr.data, end=" ")
+        queue.append(curr.left)
+        queue.append(curr.right)
+        if curr.left:
+            nonNull += 1
+        if curr.right:
+            nonNull += 1
