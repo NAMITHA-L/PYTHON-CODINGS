@@ -1,0 +1,66 @@
+def serialize(root):
+    arr = []
+    q = deque([root])
+    
+    while q:
+        curr = q.popleft()
+
+        if not curr:
+            arr.append(-1)
+            continue
+        
+        arr.append(curr.data)
+        q.append(curr.left)
+        q.append(curr.right)
+    
+    return arr
+
+def deSerialize(arr):
+
+    if arr[0] == -1:
+        return None
+    
+    root = Node(arr[0])
+    q = deque([root])
+    
+    i = 1
+    while q:
+        curr = q.popleft()
+
+        if arr[i] != -1:
+            left = Node(arr[i])
+            curr.left = left
+            q.append(left)
+        i += 1
+
+        if arr[i] != -1:
+            right = Node(arr[i])
+            curr.right = right
+            q.append(right)
+        i += 1
+    
+    return root
+
+def printLevelOrder(root):
+    if root is None:
+        print("N ", end="")
+        return
+
+    queue = deque([root])
+    non_null = 1
+
+    while queue and non_null > 0:
+        curr = queue.popleft()
+
+        if curr is None:
+            print("N ", end="")
+            continue
+        non_null -= 1
+
+        print(curr.data, end=" ")
+        queue.append(curr.left)
+        queue.append(curr.right)
+        if curr.left:
+            non_null += 1
+        if curr.right:
+            non_null += 1
