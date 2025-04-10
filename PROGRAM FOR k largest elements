@@ -1,0 +1,26 @@
+def partition(arr, left, right):
+    pivot = arr[right]
+    i = left
+    for j in range(left, right):
+      
+        if arr[j] >= pivot:
+            arr[i], arr[j] = arr[j], arr[i]
+            i += 1
+    arr[i], arr[right] = arr[right], arr[i]
+    return i
+def quickSelect(arr, left, right, k):
+    if left <= right:
+        pivotIdx = partition(arr, left, right)
+        leftCnt = pivotIdx - left + 1
+        if leftCnt == k:
+            return
+        if leftCnt > k:
+            quickSelect(arr, left, pivotIdx - 1, k)
+        else:
+            quickSelect(arr, pivotIdx + 1, right, k - leftCnt)
+def kLargest(arr, k):
+    quickSelect(arr, 0, len(arr) - 1, k)
+    res = arr[:k]
+    res.sort(reverse=True)
+    return res
+  
