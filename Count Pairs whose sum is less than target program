@@ -1,0 +1,16 @@
+def countPairs(arr, target):
+  
+    arr.sort()
+    left, right = 0, len(arr) - 1
+    cnt = 0
+
+    while left < right:
+        sum = arr[left] + arr[right]
+
+        if sum < target:
+            cnt += right - left
+            left += 1
+        else:
+            right -= 1
+
+    return cnt
